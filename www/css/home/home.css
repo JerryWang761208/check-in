@@ -1,0 +1,18 @@
+#check-table{
+    height:500px !important;
+    overflow:scroll;
+}
+
+#check-table-thead{
+    /*position:fixed;*/
+}
+
+#check-res{
+    display:inline-block;
+    float:right;
+    color:red;
+    margin-bottom: 10px;
+    text-align:center;
+   
+  
+}
