@@ -32,10 +32,16 @@ class Home extends CI_Controller {
 		//insert into `checkin`	
 		$p_id = $this -> input -> post('p_id');
 		$sex = $this -> input -> post('sex');
-		$data['no'] = $this -> check_dao -> checkin($p_id,$sex);
+		$res = $this -> check_dao -> checkin($p_id,$sex);
 		
-		//update people status
-		$this -> people_dao -> update_status($p_id);
+		if($res == 'already'){
+			$data['msg'] = $res;
+		}else{
+			//update people status
+			$data['no'] = $res;
+			$this -> people_dao -> update_status($p_id);	
+		}
+		
 		
 		$this -> to_json($data);
 		

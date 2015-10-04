@@ -11,21 +11,31 @@ class Check_dao extends CI_Model{
   function checkin($id,$sex){
   		
 	    $data['people_id'] = $id;
-	    $this -> db -> insert($this -> table_name,$data);
+		//check if already checked
+		$this -> db -> where('people_id',$id);
+		$q = $this -> db -> get($this -> table_name);
+		if($q->num_rows() >0){
+			return 'already'; //已經簽到了
+		}else{
+			$this -> db -> insert($this -> table_name,$data);
+			//get the n.o.
+			$no_id = $this -> db -> insert_id();
+			$this -> db -> where('sex',$sex);
+			$this -> db -> where('id <',$no_id);
+			$q = $this -> db -> get($this->view_name);
+			$count = $q -> num_rows();
+			$no = $count+1;
+			
+			//update n.o.
+			$this -> db -> where('id',$no_id);
+			$no_data['no'] = $no;
+			$this -> db -> update($this->table_name,$no_data);
+			return $no;
 		
-		//get the n.o.
-		$no_id = $this -> db -> insert_id();
-		$this -> db -> where('sex',$sex);
-		$this -> db -> where('id <',$no_id);
-		$q = $this -> db -> get($this->view_name);
-		$count = $q -> num_rows();
-		$no = $count+1;
+		}
+	    
 		
-		//update n.o.
-		$this -> db -> where('id',$no_id);
-		$no_data['no'] = $no;
-		$this -> db -> update($this->table_name,$no_data);
-		return $no;
+		
 		
 	   
   }

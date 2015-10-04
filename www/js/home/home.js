@@ -119,11 +119,19 @@ $(function(){
 								 success: function(data,textStatus,jqXHR) {
 											//^detailStore = data['list'];
 											//reDraw();
+											msg = data['msg'];
 											count = data['no'];
-											$('#check-'+me.id).attr('disabled',true);
-											$('#check-'+me.id).empty().text(count+'號');
-											$('#check-res').val(me.sex+' '+me.name+' '+count+'號');
-											//alert(count);
+											
+											if(msg === undefined){
+												$('#check-'+me.id).attr('disabled',true);
+												$('#check-'+me.id).empty().text(count+'號');
+												$('#check-res').val(me.sex+' '+me.name+' '+count+'號');
+												//alert(count);
+											}else{
+												alert('已經簽到過了，請注意是否有出錯？！');
+												$('#check-'+me.id).attr('disabled',true);
+											}
+											
 								        },
 								        error: function() {
 								          alert('失敗');
