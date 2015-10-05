@@ -7,7 +7,7 @@
 <body>
      <?php $this -> load -> view('layout/header')?>
     <!-- LOGO HEADER END-->
-     <?php $this -> load -> view('layout/nav')?>
+     <?php $this -> load -> view('layout/nav_home')?>
     <!-- MENU SECTION END-->
     <div class="content-wrapper">
         <div class="container">
