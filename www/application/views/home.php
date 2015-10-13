@@ -13,17 +13,22 @@
         <div class="container">
               <div class="row">
                     <div class="col-md-12">
-                        <h1 class="page-head-line"> <i class="fa fa-user"></i> 簽到系統</h1>
-                        <i class="fa fa-user fa-3x" style="margin:0 auto !important;display:inline-block"></i>
-                        <label class="radio-inline"><input type="radio" name="sex" value="m" checked/>Male</label> 
+                        <h1 class="page-head-line"> <i class="fa fa-user-plus"></i> 簽到系統</h1>
+                        <!-- <i class="fa fa-user fa-3x" style="margin:0 auto !important;display:inline-block"></i> -->
+                        <i class="fa fa-male fa-3x" style="margin:0 auto !important;display:inline-block"></i>
+                        <label class="radio-inline"><input type="radio" name="sex" value="m" checked/>Male</label>
+                        <i class="fa fa-female fa-3x" style="margin:0 auto !important;display:inline-block"></i> 
                         <label class="radio-inline"><input type="radio" name="sex" value="f"/>Female</label> 
-                        <button type="button" id="show-checked" class="btn btn-success">顯示目前簽到狀況</button>
+                        <div class="btn-group btn-group-sm">
+        					<button type="button" id="show-checked" class="btn btn-success">顯示目前簽到狀況</button>		
+    					</div>
+                        
                         <!-- <h3 id="check-res"></h3> -->
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="panel panel-default">
+                        <div class="panel panel-info">
 	                        <div class="panel-heading">
 	                           <p style="display:inline-block">簽到</p> 
 	                           <!-- <h3 id="check-res"></h3> -->
@@ -33,8 +38,9 @@
 		                       	<form class="form-inline">
 								  <div class="form-group has-success">
 								    <input type="text" class="form-control" id="name" name="name" placeholder="請輸入名字" />
-								    <button class="btn btn-primary" ><i class="fa fa-search"></i></button>
+									    <button class="btn btn-primary" ><i class="fa fa-search"></i></button>
 								  </div>
+								 </form>
 								  
 								  <div id="check-table">
 								  	<table class="table table-bordered table-hover">
@@ -56,8 +62,9 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="panel panel-default">
+                        <div class="panel panel-danger">
 	                        <div class="panel-heading">
+	                           <i class="fa fa-plus-circle"></i>
 	                           新增人員(預報名單沒有的人)
 	                        </div>
                         	<div class="panel-body">
@@ -87,8 +94,9 @@
                         
                         <!-- 2nd -->
                         
-                        <div class="panel panel-default">
+                        <div class="panel panel-primary">
 	                        <div class="panel-heading">
+	                           <i class="fa fa-list-ol"></i>
 	                           目前簽到狀況
 	                        </div>
                         	<div class="panel-body">
@@ -116,6 +124,11 @@
         </div>
     </div>
     <!-- CONTENT-WRAPPER SECTION END-->
+    
+    
+   
+  
+  
     <footer>
          <?php $this -> load -> view('layout/footer')?>
     </footer>

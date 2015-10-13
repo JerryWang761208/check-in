@@ -125,7 +125,9 @@ $(function(){
 											if(msg === undefined){
 												$('#check-'+me.id).attr('disabled',true);
 												$('#check-'+me.id).empty().text(count+'號');
-												$('#check-res').val(me.sex+' '+me.name+' '+count+'號');
+												$('#check-res').val(me.sex+' '+me.name+' '+count+'號');											
+												//$('#check-res').html(me.sex+' '+me.name+'<span class="badge">'+count+'</span>號');
+												
 												//alert(count);
 											}else{
 												alert('已經簽到過了，請注意是否有出錯？！');
